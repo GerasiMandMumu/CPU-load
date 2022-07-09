@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Тестовое задание</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+</head>
+<body>
+
+    <canvas id="instant_load" width="535" height="300">
+        CANVAS NOT SUPPORTED IN THIS BROWSER!
+    </canvas>
+
+    <canvas id="average_load" width="535" height="300">
+        CANVAS NOT SUPPORTED IN THIS BROWSER!
+    </canvas>
+
+
+    <script src="{% static 'js/draw.js' %}" type="text/javascript"></script>
+
+    <script>
+        var data_instant = JSON.parse('{{ instant_load | safe }}');
+        draw(data_instant, "Моментальная загрузка", "instant_load");
+        let data_average = JSON.parse('{{ average_load | safe }}');
+        draw(data_average, "Усредненная загрузка", "average_load");
+    </script>
+
+</body>
+</html>
