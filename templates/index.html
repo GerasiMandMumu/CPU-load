@@ -24,9 +24,9 @@
 
     <script>
         var data_instant = JSON.parse('{{ instant_load | safe }}');
-        draw(data_instant, "Моментальная загрузка", "instant_load");
+        draw(data_instant, "Моментальная загрузка", "instant_load", 5);
         let data_average = JSON.parse('{{ average_load | safe }}');
-        draw(data_average, "Усредненная загрузка", "average_load");
+        draw(data_average, "Усредненная загрузка", "average_load", 60);
     </script>
 
 </body>

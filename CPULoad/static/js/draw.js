@@ -1,9 +1,9 @@
-function draw(lst, title, canvas_id) {
+function draw(lst, title, canvas_id, diff) {
     let load = new Array();
     let time = new Array();
 
     for (let i = 1; i < lst.length; i++) {
-        if(lst[i].fields['time'] - lst[i - 1].fields['time'] < 5){
+        if(lst[i].fields['time'] - lst[i - 1].fields['time'] < diff){
             load.push(lst[i].fields['cpu_load']);
             time.push(lst[i].fields['time']);
         }
